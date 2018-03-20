@@ -1723,6 +1723,18 @@ if (message.content.startsWith(".role ")) {
 
 
 
+ client.on("guildCreate", guild => {
+    let embed = new Discord.RichEmbed () 
+    .addField(' ***Bot joined to :***[ ' + `${guild.name}` + ']   **By : **' + `${guild.owner.user.username}` + '')
+    .setTimestamp()
+    client.channels.get("425700124623241222").send(embed)
+  });
 
+  client.on("guildDelete", guild => {
+  let embed = new Discord.RichEmbed ()
+  .addField(' ***Bot left from :***[ ' + `${guild.name}` + ']     **By : **' + `${guild.owner.user.username}` +  ' ')
+.setTimestamp()
+  client.channels.get("425700124623241222").send(embed)
+});
 
 
